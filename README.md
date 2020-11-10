@@ -6,6 +6,12 @@ Mark every single channel as read with one command.
 
 -  Powercord
 
+# Usage
+
+- `-read`
+- `-markread`
+- `-ack`
+
 # Installation
 
 -  `git clone https://github.com/slow/mark-all-read`
