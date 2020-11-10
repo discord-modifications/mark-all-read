@@ -15,6 +15,10 @@ module.exports = class MarkAllRead extends Plugin {
       });
    }
 
+   pluginWillUnload() {
+      powercord.api.commands.unregisterCommand('read');
+   }
+
    async executor() {
       const unreads = Object.values(channelStore.getAllChannels()).map(c => ({
          channelId: c.id,
