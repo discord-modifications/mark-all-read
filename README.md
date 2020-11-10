@@ -8,9 +8,9 @@ Mark every single channel as read with one command.
 
 # Usage
 
-- `-read`
-- `-markread`
-- `-ack`
+- `read`
+- `markread`
+- `ack`
 
 # Installation
 
