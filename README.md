@@ -17,4 +17,4 @@ Mark every single channel as read with one command.
 -  `git clone https://github.com/slow/mark-all-read`
 
 # Support
-- eternal#1000
+- eternal#0404
