@@ -23,12 +23,12 @@ module.exports = class MarkAllRead extends Plugin {
       let channels = [
          ...Object.values(getPrivateChannels()),
          ...Object.values(getGuildChannels())
-      ]
+      ];
       const unreads = channels.map(c => ({
          channelId: c.id,
          messageId: messageStore.lastMessageId(c.id)
-      }))
+      }));
       return await unreadAcks.bulkAck(unreads);
    }
-}
+};
 
