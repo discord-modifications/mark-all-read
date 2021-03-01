@@ -1,6 +1,6 @@
 const { Plugin } = require('powercord/entities');
 const { getModule } = require('powercord/webpack');
-const { getGuildChannels, getPrivateChannels } = getModule(['getGuildChannels'], false);
+const { getMutableGuildAndPrivateChannels } = getModule(['getChannel'], false);
 const unreadAcks = getModule(['ack', 'ackCategory'], false);
 const messageStore = getModule(['hasUnread', 'lastMessageId'], false);
 
@@ -20,13 +20,10 @@ module.exports = class MarkAllRead extends Plugin {
    }
 
    async executor() {
-      let channels = [
-         ...Object.values(getPrivateChannels()),
-         ...Object.values(getGuildChannels())
-      ];
+      let channels = Object.keys(getMutableGuildAndPrivateChannels());
       const unreads = channels.map(c => ({
-         channelId: c.id,
-         messageId: messageStore.lastMessageId(c.id)
+         channelId: c,
+         messageId: messageStore.lastMessageId(c)
       }));
       return await unreadAcks.bulkAck(unreads);
    }
