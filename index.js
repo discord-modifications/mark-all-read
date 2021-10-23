@@ -1,6 +1,6 @@
 const { Plugin } = require('powercord/entities');
 const { getModule } = require('powercord/webpack');
-const { getMutableGuildAndPrivateChannels } = getModule(['getChannel'], false);
+const { getMutableGuildAndPrivateChannels } = getModule(['getDMFromUserId'], false);
 const unreadAcks = getModule(['ack', 'ackCategory'], false);
 const messageStore = getModule(['hasUnread', 'lastMessageId'], false);
 
